@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Website</title>
+  <link rel="icon" href="./imeg/h.JPG" type="image/JPG">
+  <style>
+    .profile-photo {
+        width: 200px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0%;
+        display: block;
+        margin: 20px auto;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: peachpuff;
+        color: #333;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: #007acc;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f0f0f0;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #007acc;
+      font-weight: bold;
+    }
+
+    nav button:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      color: #007acc;
+    }
+
+    img, video {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: hsl(204, 26%, 72%);
+      color: white;
+      margin-top: 40px;
+    }
+
+    .sun-icon, .moon-icon {
+      display: none;
+    }
+
+    #theme-toggle:checked + label .moon-icon {
+      display: inline;
+    }
+
+    #theme-toggle:not(:checked) + label .sun-icon {
+      display: inline;
+    }
+
+    label {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    body.light {
+      background-color: #fff;
+      color: #000;
+    }
+
+    body.dark {
+      background-color: #333;
+      color: #fff;
+    }
+
+    #contact a {
+      color: #007acc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    #contact iframe {
+      margin-top: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Theme toggle -->
+  <input type="checkbox" id="theme-toggle" hidden>
+  <label for="theme-toggle"><span class="sun-icon">🌞</span><span class="moon-icon">🌙</span></label>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to My Personal Website</h1>
+    <p>Explore who I am and what I aspire to be.</p>
+  </header>
+
+  <!-- Navigation buttons -->
+  <nav>
+    <button onclick="showSection('welcome')">Home</button>
+    <button onclick="showSection('about')">About Me</button>
+     <button onclick="showSection('video')">Video</button> <!-- ✅ New Video tab -->
+    <button onclick="showSection('achievements')">Achievements</button>
+    <button onclick="showSection('goals')">Future Goals</button>
+    <button onclick="showSection('personal')">Personal</button>
+    <button onclick="showSection('contact')">Contact</button> <!-- ✅ Contact added -->
+  </nav>
+
+  <!-- Sections -->
+  <section id="welcome" class="active">
+    <h2>👋 Welcome Section</h2>
+    <p>Hi there! I'm thrilled to have you here. This website is a little window into who I am...</p>
+    <img src="./imeg/profile.png.jpg" alt="High Quality Photo" class="profile-photo" />
+  </section>
+
+  <section id="about">
+    <h2>👤 About Me</h2>
+    <p><strong>Name:</strong> Harshada Kishor Karande</p>
+    <p><strong>Location:</strong> Palghar, India</p>
+    <p><strong>Education:</strong> Pursuing BTech at Mumbai University</p>
+    <p><strong>Languages Known:</strong> English, Hindi, Marathi</p>
+  </section>
+
+
+<!-- Video Section -->
+<section id="video" class="py-12 bg-white rounded-lg mb-10 shadow-lg">
+  <h2 class="text-3xl font-semibold text-center mb-6">My YouTube Video</h2>
+  <div class="flex justify-center">
+    <iframe width="800" height="450" 
+               src="https://www.youtube.com/embed/9em32dDnTck"  
+            title="Harshada's Portfolio Video" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            class="rounded-lg shadow-lg">
+    </iframe>
+  </div>
+</section>
+
+  <section id="achievements">
+    <h2>🏆 Achievements</h2>
+    <ul>
+      <li>Internship in Dotnet, SQL & C#</li>
+      <li>💻 Built a student management system in Python</li>
+    </ul>
+  </section>
+
+  <section id="goals">
+    <h2>🎯 Future Goals</h2>
+    <p>I aim to contribute meaningfully to technology and solve real-world problems through global collaboration.</p>
+  </section>
+
+  <section id="personal">
+    <h2>💬 Personal Side</h2>
+    <p><strong>Hobbies:</strong></p>
+    <ul>
+      <li>🎨 Drawing & Design</li>
+      <li>📷 Photography – Capturing everyday beauty</li>
+    </ul>
+
+    <p><strong>Favorites:</strong></p>
+    <ul>
+      <li><strong>Books:</strong> *Atomic Habits*, *The Alchemist*</li>
+      <li><strong>Websites:</strong> Medium, Coursera</li>
+      <li><strong>Startups:</strong> Notion, Duolingo</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contact Me</h2>
+    <p><strong>📞 Phone:</strong> <a href="tel:+917769910195">+91 7769910195</a></p>
+    <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/917769910195" target="_blank">Chat on WhatsApp</a></p>
+    <p><strong>✉️ Email:</strong> <a href="mailto:you@example.com">harshadakarande4@gmail.com</a></p>
+
+    <h3>📍 Location</h3>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.936718187249!2d72.7500!3d19.6937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be71221c1b19a6b%3A0xa9c3df43ad72f1d9!2sPalghar%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1716200000000"
+      width="100%"
+      height="300"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <h3>🌐 Social Media</h3>
+    <ul>
+      <li><a href="https://instagram.com/karande.harshada" target="_blank">Instagram</a></li>
+      <li><a href="https://github.com/harshada2510" target="_blank">GitHub</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 harshadakarande4
+  </footer>
+
+  <!-- Script for interaction -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    function showSection(id) {
+      sections.forEach(section => {
+        section.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+    }
+
+    // Theme toggle logic
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    if (localStorage.getItem("theme") === "dark") {
+      body.classList.add("dark");
+      toggle.checked = true;
+    }
+
+    toggle.addEventListener("change", () => {
+      if (toggle.checked) {
+        body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      } else {
+        body.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      }
+    });
+  </script>
+</body>
+</html>
