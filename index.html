@@ -6,135 +6,181 @@
   <title>My Personal Website</title>
   <link rel="icon" href="./imeg/h.JPG" type="image/JPG">
   <style>
-    .profile-photo {
-        width: 200px;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 0%;
-        display: block;
-        margin: 20px auto;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
+  :root {
+    --bg-light: #fff;
+    --text-light: #000;
+    --link-light: #007acc;
+    --nav-bg-light: #f0f0f0;
+    --footer-bg-light: hsl(204, 26%, 72%);
+    
+    --bg-dark: #333;
+    --text-dark: #fff;
+    --link-dark: #aad8ff;
+    --nav-bg-dark: #444;
+    --footer-bg-dark: #222;
+  }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: peachpuff;
-        color: #333;
-        transition: background-color 0.3s, color 0.3s;
-    }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: peachpuff;
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-    header {
-      background-color: #007acc;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
+  body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
 
-    nav {
-      background-color: #f0f0f0;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+  header {
+    background-color: #007acc;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+  }
 
-    nav button {
-      background-color: transparent;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      color: #007acc;
-      font-weight: bold;
-    }
+  nav {
+    background-color: var(--nav-bg-light);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
-    nav button:hover {
-      text-decoration: underline;
-    }
+  body.dark nav {
+    background-color: var(--nav-bg-dark);
+  }
 
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      display: none;
-    }
+  nav button {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--link-light);
+    font-weight: bold;
+  }
 
-    section.active {
-      display: block;
-    }
+  body.dark nav button {
+    color: var(--link-dark);
+  }
 
-    h2 {
-      color: #007acc;
-    }
+  nav button:hover {
+    text-decoration: underline;
+  }
 
-    img, video {
-      max-width: 100%;
-      border-radius: 12px;
-    }
+  section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
 
-    ul {
-      padding-left: 20px;
-    }
+  body.dark section {
+    background: #444;
+    color: var(--text-dark);
+  }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: hsl(204, 26%, 72%);
-      color: white;
-      margin-top: 40px;
-    }
+  section.active {
+    display: block;
+  }
 
-    .sun-icon, .moon-icon {
-      display: none;
-    }
+  h2 {
+    color: #007acc;
+  }
 
-    #theme-toggle:checked + label .moon-icon {
-      display: inline;
-    }
+  body.dark h2 {
+    color: var(--link-dark);
+  }
 
-    #theme-toggle:not(:checked) + label .sun-icon {
-      display: inline;
-    }
+  img, video {
+    max-width: 100%;
+    border-radius: 12px;
+  }
 
-    label {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      cursor: pointer;
-      font-size: 20px;
-    }
+  ul {
+    padding-left: 20px;
+  }
 
-    body.light {
-      background-color: #fff;
-      color: #000;
-    }
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--footer-bg-light);
+    color: white;
+    margin-top: 40px;
+  }
 
-    body.dark {
-      background-color: #333;
-      color: #fff;
-    }
+  body.dark footer {
+    background-color: var(--footer-bg-dark);
+    color: #ccc;
+  }
 
-    #contact a {
-      color: #007acc;
-      text-decoration: none;
-      font-weight: bold;
-    }
+  .profile-photo {
+    width: 200px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0%;
+    display: block;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
 
-    #contact a:hover {
-      text-decoration: underline;
-    }
+  .sun-icon, .moon-icon {
+    display: none;
+  }
 
-    #contact iframe {
-      margin-top: 10px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-  </style>
+  #theme-toggle:checked + label .moon-icon {
+    display: inline;
+  }
+
+  #theme-toggle:not(:checked) + label .sun-icon {
+    display: inline;
+  }
+
+  label {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  body.dark label {
+    background-color: #555;
+    color: var(--text-dark);
+  }
+
+  #contact a {
+    color: var(--link-light);
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  #contact a:hover {
+    text-decoration: underline;
+  }
+
+  body.dark #contact a {
+    color: var(--link-dark);
+  }
+
+  #contact iframe {
+    margin-top: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
 </head>
 <body>
 
@@ -163,7 +209,8 @@
   <section id="welcome" class="active">
     <h2>👋 Welcome Section</h2>
     <p>Hi there! I'm thrilled to have you here. This website is a little window into who I am...</p>
-    <img src="./imeg/profile.png.jpg" alt="High Quality Photo" class="profile-photo" />
+    <img src="./imeg/profile.png.JPG" alt="High Quality Photo" class="profile-photo" />
+  
   </section>
 
   <section id="about">
